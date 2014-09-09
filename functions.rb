@@ -2,7 +2,6 @@
 
 def reverse(an_array)
 	an_array.reverse
-	return an_array
 end
 
 # Return a map of letters and counts of letters
@@ -19,13 +18,12 @@ end
 # Be sure to only sum the numbers
 # (Hint: the is_a? method might be useful here)
 def sum_only_numbers(an_array)
-  an_array = [1,20, 33, 'hi', false]
   count = 0
   an_array.map do |array|
-  	if array.is_a? Fixnum
+  	if array.is_a? Fixnum || array.is_a? Float
   		count = count + array
   	end
-  		count
+  end	
 end
 
 # For i from 1 to 100, return an array.
@@ -35,23 +33,26 @@ end
 # If i is a multiple of 3 and 5, the element is 'FizzBuzz'
 # Otherwise, the element is simply the value of i
 # For example [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', ..., 14, 'FizzBuzz', ...]
+
 def fizzbuzz
 array = []
-for i in 1..100
-	if i%3 == 0
-	array << 'Fizz'
-		elsif i%5 == 0
+	for i in 1..100
+		if i%3 == 0 && i%5 == 0
+			array << 'FizzBuzz'
+		elsif i%3 == 0
+			array << 'Fizz'
+		elsif i%5 == 0 
 			array << 'Buzz'
-			elsif
-				i%3 == 0 && i%5== 0
-					array << 'FizzBuzz'
-					else
-					array << i
-					i+= 1
+		else
+			array << i
+  			i+= 1
+		end
+	end
+			return array
 end
 
 # Uncomment each of these to test your functions
 puts reverse([3,6,'dog']).inspect
 # puts histogram('The Quick brown fox').inspect
-# puts sum_only_numbers [4, 'foo', [ ], 27, :rain, 3.14]
+puts sum_only_numbers [4, 'foo', [ ], 27, :rain, 3.14]
 # puts fizzbuzz.join("\n")
