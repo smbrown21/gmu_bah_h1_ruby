@@ -9,9 +9,15 @@ end
 # For example, histogram('Hello') returns {'h'=>1,'e'=>1,'l'=>2,'o'=>1}
 
 def histogram(a_string)
- a_string = ['h','e','l','l','o']
- Hash[*a_string.group_by{ |n| n}.flat_map{ |k, n| [k, n.size]}]
-end
+	h =	Hash.new(0)
+	a_string.each_char do |char|
+	char.downcase!
+		next unless char =~/\w/
+			h[char] += 1
+		end
+				h
+	end
+
 
 # Sum all the numbers in the array
 # an_array can contain lots of different things
@@ -53,6 +59,6 @@ end
 
 # Uncomment each of these to test your functions
 puts reverse([3,6,'dog']).inspect
-# puts histogram('The Quick brown fox').inspect
+puts histogram('The Quick brown fox').inspect
 puts sum_only_numbers [4, 'foo', [ ], 27, :rain, 3.14]
 # puts fizzbuzz.join("\n")
