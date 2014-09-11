@@ -26,7 +26,7 @@ def histogram(a_string)
 def sum_only_numbers(an_array)
   count = 0
   an_array.map do |array|
-  	if array.is_a? Fixnum || array.is_a? Float
+  	if array.is_a? Fixnum or array.is_a? Float
   		count = count + array
   	end
   end	
@@ -61,4 +61,4 @@ end
 puts reverse([3,6,'dog']).inspect
 puts histogram('The Quick brown fox').inspect
 puts sum_only_numbers [4, 'foo', [ ], 27, :rain, 3.14]
-# puts fizzbuzz.join("\n")
+puts fizzbuzz.join("\n")
