@@ -1,11 +1,11 @@
 class Bookmark
+	attr_reader :last_visited
 	def initialize(url, title)
 		@url = url
 		@title = title
-		@last_visited = last_visited
-	end
+		end
 end
-bookmark = Bookmark.new(url, title)
+bookmark = Bookmark.new('www.books.com', 'Book Title') #example attributes
 
 class Bookmark
 	def visit!
